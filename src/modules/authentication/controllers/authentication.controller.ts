@@ -10,7 +10,7 @@ import { RegisterDTO } from '../dtos/register-user.dto';
 import { LoginResponseDTO } from '../dtos/login-response.dto';
 
 @Controller('auth')
-export class AuthController {
+export class AuthenticationController {
   constructor(
     private readonly loginService: LoginService,
     private readonly registerService: RegisterService,
