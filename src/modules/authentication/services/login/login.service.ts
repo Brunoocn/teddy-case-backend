@@ -6,8 +6,6 @@ import {
 import { InjectRepository } from '@nestjs/typeorm';
 import { User } from '../../database/entities/user.entity';
 import { Repository } from 'typeorm';
-import { JwtService } from '@nestjs/jwt';
-import { compare } from 'bcrypt';
 
 import { User as UserFormatted } from '../../types/user';
 import { LoginDTO } from '../../dtos/login-user.dto';
@@ -19,7 +17,6 @@ export class LoginService {
   constructor(
     @InjectRepository(User)
     private userRepository: Repository<User>,
-    private jwtService: JwtService,
     private hashComparer: HashComparer,
     private encrypter: Encrypter,
   ) {}
