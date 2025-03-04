@@ -9,7 +9,7 @@ import { RegisterService } from '../services/register/register.service';
 import { RegisterDTO } from '../dtos/register-user.dto';
 import { LoginResponseDTO } from '../dtos/login-response.dto';
 
-@Controller('auth')
+@Controller('authentication')
 export class AuthenticationController {
   constructor(
     private readonly loginService: LoginService,

@@ -6,18 +6,19 @@ import {
 import { InjectRepository } from '@nestjs/typeorm';
 import { User } from '../../database/entities/user.entity';
 import { Repository } from 'typeorm';
-import { JwtService } from '@nestjs/jwt';
-import { compare } from 'bcrypt';
 
 import { User as UserFormatted } from '../../types/user';
 import { LoginDTO } from '../../dtos/login-user.dto';
+import { HashComparer } from 'src/modules/cryptography/abstract/hash-comparer';
+import { Encrypter } from 'src/modules/cryptography/abstract/encrypter';
 
 @Injectable()
 export class LoginService {
   constructor(
     @InjectRepository(User)
     private userRepository: Repository<User>,
-    private jwtService: JwtService,
+    private hashComparer: HashComparer,
+    private encrypter: Encrypter,
   ) {}
 
   async login({ email, password }: LoginDTO) {
@@ -42,15 +43,9 @@ export class LoginService {
       email: userExists.email,
     };
 
-    const token = this.jwtService.sign(
-      {
-        user: userFiltered,
-      },
-      {
-        secret: process.env.JWT_SECRET,
-        expiresIn: process.env.JWT_EXPIRES_IN,
-      },
-    );
+    const token = await this.encrypter.encrypt({
+      user: userFiltered,
+    });
 
     return {
       token,
@@ -65,7 +60,10 @@ export class LoginService {
     inputPassword: string;
     userPassword: string;
   }) {
-    const isPasswordMatch = await compare(inputPassword, userPassword);
+    const isPasswordMatch = await this.hashComparer.compare(
+      inputPassword,
+      userPassword,
+    );
 
     if (!isPasswordMatch) {
       throw new UnauthorizedException('Email e/ou senha inválidos');

@@ -6,12 +6,14 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { User } from '../../database/entities/user.entity';
 import { Repository } from 'typeorm';
 import { RegisterDTO } from '../../dtos/register-user.dto';
+import { HashGenerator } from 'src/modules/cryptography/abstract/hash-generator';
 
 @Injectable()
 export class RegisterService {
   constructor(
     @InjectRepository(User)
     private userRepository: Repository<User>,
+    private hashGenerator: HashGenerator,
   ) {}
 
   async register({ name, email, password }: RegisterDTO) {
@@ -50,10 +52,7 @@ export class RegisterService {
   }
 
   private async hashPassword(password: string) {
-    const hashedPassword = await hash(
-      password,
-      Number(process.env.ROUNDS_OF_HASHING),
-    );
+    const hashedPassword = await this.hashGenerator.hash(password);
 
     return hashedPassword;
   }
