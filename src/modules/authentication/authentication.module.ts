@@ -5,10 +5,24 @@ import { RegisterService } from './services/register/register.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from './database/entities/user.entity';
 import { JwtService } from '@nestjs/jwt';
+import { JwtStrategy } from 'src/common/jwt-guard/jwt.strategy';
+import { JwtAuthGuard } from 'src/common/jwt-guard/jwt-auth.guard';
+import { APP_GUARD } from '@nestjs/core';
+import { CryptographyModule } from '../cryptography/cryptography.module';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([User])],
+  imports: [TypeOrmModule.forFeature([User]), CryptographyModule],
   controllers: [AuthenticationController],
-  providers: [LoginService, RegisterService, JwtService],
+  providers: [
+    LoginService,
+    RegisterService,
+    JwtService,
+    {
+      provide: APP_GUARD,
+      useClass: JwtAuthGuard,
+    },
+
+    JwtStrategy,
+  ],
 })
 export class AuthenticationModule {}
