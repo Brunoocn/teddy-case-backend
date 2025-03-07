@@ -6,7 +6,6 @@ import { RegisterDTO } from '../../dtos/register-user.dto';
 import { HashGenerator } from 'src/modules/cryptography/abstract/hash-generator';
 import { InMemoryUserRepository } from 'test/repositories/in-memory-user-repository';
 
-// Mock class for HashGenerator
 class HashGeneratorMock implements HashGenerator {
   async hash(value: string): Promise<string> {
     return `hashed-${value}`;

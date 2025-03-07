@@ -7,14 +7,12 @@ import { HashComparer } from 'src/modules/cryptography/abstract/hash-comparer';
 import { Encrypter } from 'src/modules/cryptography/abstract/encrypter';
 import { InMemoryUserRepository } from 'test/repositories/in-memory-user-repository';
 
-// Mock class for HashComparer
 class HashComparerMock implements HashComparer {
   async compare(input: string, hashed: string): Promise<boolean> {
     return input === hashed;
   }
 }
 
-// Mock class for Encrypter
 class EncrypterMock implements Encrypter {
   async encrypt(payload: Record<string, unknown>): Promise<string> {
     return 'mocked_token';
@@ -76,7 +74,7 @@ describe('LoginService', () => {
     const user = userRepository.create({
       name: 'John Doe',
       email: 'johndoe@example.com',
-      password: '123456', // Correct password
+      password: '123456',
     });
 
     await userRepository.save(user);
