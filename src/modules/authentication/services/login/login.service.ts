@@ -4,13 +4,14 @@ import {
   UnauthorizedException,
 } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { User } from '../../database/entities/user.entity';
+
 import { Repository } from 'typeorm';
 
 import { User as UserFormatted } from '../../types/user';
 import { LoginDTO } from '../../dtos/login-user.dto';
 import { HashComparer } from 'src/modules/cryptography/abstract/hash-comparer';
 import { Encrypter } from 'src/modules/cryptography/abstract/encrypter';
+import { User } from 'src/modules/database/entities/user.entity';
 
 @Injectable()
 export class LoginService {

@@ -1,9 +1,8 @@
-import { BadRequestException, Inject, Injectable } from '@nestjs/common';
-
-import { hash } from 'bcrypt';
+import { BadRequestException, Injectable } from '@nestjs/common';
 
 import { InjectRepository } from '@nestjs/typeorm';
-import { User } from '../../database/entities/user.entity';
+
+import { User } from 'src/modules/database/entities/user.entity';
 import { Repository } from 'typeorm';
 import { RegisterDTO } from '../../dtos/register-user.dto';
 import { HashGenerator } from 'src/modules/cryptography/abstract/hash-generator';

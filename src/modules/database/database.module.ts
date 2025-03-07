@@ -1,8 +1,9 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { User } from '../authentication/database/entities/user.entity';
+
 import { PluralNamingStrategy } from 'src/config/plural-naming.strategy';
 import { ConfigModule } from '@nestjs/config';
+import { User } from './entities/user.entity';
 
 @Module({
   imports: [

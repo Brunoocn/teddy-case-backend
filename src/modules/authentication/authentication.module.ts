@@ -3,7 +3,8 @@ import { AuthenticationController } from './controllers/authentication.controlle
 import { LoginService } from './services/login/login.service';
 import { RegisterService } from './services/register/register.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { User } from './database/entities/user.entity';
+import { User } from '../database/entities/user.entity';
+
 import { JwtService } from '@nestjs/jwt';
 import { JwtStrategy } from 'src/common/jwt-guard/jwt.strategy';
 import { JwtAuthGuard } from 'src/common/jwt-guard/jwt-auth.guard';
