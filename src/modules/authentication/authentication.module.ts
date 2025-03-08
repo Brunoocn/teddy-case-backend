@@ -3,10 +3,11 @@ import { AuthenticationController } from './controllers/authentication.controlle
 import { LoginService } from './services/login/login.service';
 import { RegisterService } from './services/register/register.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { User } from './database/entities/user.entity';
+import { User } from '../database/entities/user.entity';
+
 import { JwtService } from '@nestjs/jwt';
-import { JwtStrategy } from 'src/common/jwt-guard/jwt.strategy';
-import { JwtAuthGuard } from 'src/common/jwt-guard/jwt-auth.guard';
+import { JwtStrategy } from 'src/modules/authentication/strategies/jwt.strategy';
+import { JwtAuthGuard } from 'src/modules/authentication/guards/jwt-auth.guard';
 import { APP_GUARD } from '@nestjs/core';
 import { CryptographyModule } from '../cryptography/cryptography.module';
 

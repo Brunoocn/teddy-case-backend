@@ -1,5 +1,5 @@
 import { randomUUID } from 'node:crypto';
-import { User } from 'src/modules/authentication/database/entities/user.entity';
+import { User } from 'src/modules/database/entities/user.entity';
 
 export class InMemoryUserRepository {
   private users: User[] = [];
