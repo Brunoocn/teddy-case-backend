@@ -10,6 +10,7 @@ import { RegisterDTO } from '../dtos/register-user.dto';
 import { LoginResponseDTO } from '../dtos/login-response.dto';
 import { ApiBody, ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { User as UserEntity } from 'src/modules/database/entities/user.entity';
+import { RegisterResponseDTO } from '../dtos/register-response.dto';
 
 @ApiTags('Authentication')
 @Controller('authentication')
@@ -45,7 +46,7 @@ export class AuthenticationController {
   @ApiResponse({
     status: 201,
     description: 'Usuario registrado com sucesso',
-    type: UserEntity,
+    type: RegisterResponseDTO,
   })
   @ApiBody({ type: RegisterDTO })
   @SkipAuth()

@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, it } from 'vitest';
 
-import { getTotalPages } from 'src/shared/get-total-pages';
+import { getTotalPages } from 'src/shared/pagination/get-total-pages';
 import { randomUUID } from 'node:crypto';
 import { InMemoryClientRepository } from 'test/repositories/in-memory-client-repository';
 import { FindAllService } from './find-all.service';
