@@ -3,7 +3,6 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Client } from 'src/modules/database/entities/client.entity';
 
 import { Repository } from 'typeorm';
-import { UpdateIsSelectByClientIdDTO } from '../../dtos/update-is-select-by-client-id.dto';
 import { IUpdateIsSelectedUser } from '../../types/update-is-select-client';
 
 @Injectable()
