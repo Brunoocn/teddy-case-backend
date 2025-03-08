@@ -38,13 +38,19 @@ export class ClientsController {
     return this.createClientService.create(createClientDto);
   }
 
-  @Get()
+  @Get('')
   async findAll(
-    @Query('page', new ParseIntPipe()) page?: number,
-    @Query('pageSize', new ParseIntPipe()) pageSize?: number,
+    @Query('page') page = 1,
+    @Query('pageSize') pageSize = 100,
     @Query('userId') userId?: string,
+    @Query('isSelect') isSelect?: boolean,
   ) {
-    return this.findAllClientsService.findAll({ page, pageSize, userId });
+    return this.findAllClientsService.findAll({
+      page,
+      pageSize,
+      userId,
+      isSelect,
+    });
   }
 
   @Get(':clientId')

@@ -4,8 +4,8 @@ import { Client } from 'src/modules/database/entities/client.entity';
 
 import { Repository } from 'typeorm';
 import { FindAllClientsByUserIdDTO } from '../../dtos/find-all-clients-by-user-id.dto';
-import { getOffset } from 'src/shared/get-offset';
-import { getTotalPages } from 'src/shared/get-total-pages';
+import { getOffset } from 'src/shared/pagination/get-offset';
+import { getTotalPages } from 'src/shared/pagination/get-total-pages';
 import { IFindAllClientsByUserIdResponseDTO } from '../../dtos/find-all-clients-by-user-id-response.dto';
 
 @Injectable()
@@ -16,15 +16,22 @@ export class FindAllService {
   ) {}
 
   async findAll({
-    page = 1,
-    pageSize = 100,
+    page,
+    pageSize,
     userId,
+    isSelect,
   }: FindAllClientsByUserIdDTO): Promise<IFindAllClientsByUserIdResponseDTO> {
+    const where = {
+      user: { id: userId },
+      deletedAt: null,
+    };
+
+    if (isSelect) {
+      where['isSelect'] = isSelect;
+    }
+
     const [data, total] = await this.clientRepository.findAndCount({
-      where: {
-        user: { id: userId },
-        deletedAt: null,
-      },
+      where,
       skip: getOffset({ page, pageSize }),
       take: pageSize,
     });

@@ -1,4 +1,10 @@
-import { IsNotEmpty, IsNumber, IsOptional, IsString } from 'class-validator';
+import {
+  IsBoolean,
+  IsNotEmpty,
+  IsNumber,
+  IsOptional,
+  IsString,
+} from 'class-validator';
 
 export class FindAllClientsByUserIdDTO {
   @IsNotEmpty()
@@ -12,4 +18,8 @@ export class FindAllClientsByUserIdDTO {
   @IsOptional()
   @IsNumber()
   readonly pageSize: number;
+
+  @IsOptional()
+  @IsBoolean()
+  readonly isSelect: boolean;
 }
