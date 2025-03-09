@@ -73,7 +73,7 @@ Independente dos 2 casos deve ser levado em consideração a equipe no momento e
   - Por ser gerenciado é mais caro, sobe uma maquina dimensionada anteriormente
     e utiliza regras de load balancer pra fazer upscale.
 
-![Arquitetura Maneira Facil](image-1.png)
+![Arquitetura Facil](image-3.png)
 
 # MANEIRA BARATA
 
