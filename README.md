@@ -21,7 +21,9 @@ Para iniciá-lo, siga os passos abaixo:
 $ docker-compose up --build
 ```
 
-O server irá subir na porta http://localhost:3000.
+O server irá subir na porta http://localhost:3005.
+
+Para acessar a documentação da api, basta acessar http://localhost:3005/api/docs.
 
 Vale lembrar que você deve configurar .env e o .env.prod como o .env.sample
 
