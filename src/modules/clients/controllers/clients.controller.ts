@@ -87,7 +87,7 @@ export class ClientsController {
     @Query('page') page = 1,
     @Query('pageSize') pageSize = 100,
     @Query('userId') userId?: string,
-    @Query('isSelect') isSelect?: boolean,
+    @Query('isSelect') isSelect = false,
   ) {
     return this.findAllClientsService.findAll({
       page,

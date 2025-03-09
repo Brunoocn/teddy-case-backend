@@ -19,6 +19,14 @@ export class CreateUpdateClientDTO {
   readonly companyValue: number;
 
   @ApiProperty({
+    example: 'Rua Exemplo, 123',
+    description: 'Endereço do cliente',
+  })
+  @IsNotEmpty()
+  @IsNumber()
+  readonly salary: number;
+
+  @ApiProperty({
     example: '4154eff6-aefd-4472-bdea-b3bc77d299d7',
     description: 'ID do usuário associado ao cliente',
   })

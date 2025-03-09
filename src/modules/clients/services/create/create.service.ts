@@ -15,6 +15,7 @@ export class CreateService {
   async create({
     name,
     companyValue,
+    salary,
     userId,
   }: CreateUpdateClientDTO): Promise<Client> {
     const clientAlreadyExists = await this.clientAlreadyExists(name);
@@ -26,6 +27,7 @@ export class CreateService {
     const newClient = this.clientRepository.create({
       name,
       companyValue,
+      salary,
       user: { id: userId },
     });
 
