@@ -19,8 +19,8 @@ export class CreateUpdateClientDTO {
   readonly companyValue: number;
 
   @ApiProperty({
-    example: 'Rua Exemplo, 123',
-    description: 'Endereço do cliente',
+    example: 10000,
+    description: 'Salário do cliente',
   })
   @IsNotEmpty()
   @IsNumber()
