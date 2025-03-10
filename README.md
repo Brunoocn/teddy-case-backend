@@ -57,7 +57,7 @@ Independente dos 2 casos deve ser levado em consideração a equipe no momento e
 
 # Componentes da arquitetura
 
-![Componentes Da Arquitetura](./docs/assets/components.png)
+![Componentes Da Arquitetura](./docs/assets/components-sistema.png)
 
 # MANEIRA FACIL
 
@@ -75,7 +75,7 @@ Independente dos 2 casos deve ser levado em consideração a equipe no momento e
   - Por ser gerenciado é mais caro, sobe uma maquina dimensionada anteriormente
     e utiliza regras de load balancer pra fazer upscale.
 
-![Arquitetura Facil](./docs/assets/facil.png)
+![Arquitetura Facil](./docs/assets/arquitetura-simples.png)
 
 # MANEIRA BARATA
 
@@ -91,7 +91,7 @@ Independente dos 2 casos deve ser levado em consideração a equipe no momento e
   - Dificuldade inicial, precisa organizar os serviços ou fazer utilização de IaC(terraform,open tofu, cloudformation).
   - Tem necessidade de criar um CI/CD especifico para isso.
 
-![Arquitetura Barata](./docs/assets/barata.png)
+![Arquitetura Barata](./docs/assets/arquitetura-barata.png)
 
 # Pontos a serem discutidos
 
