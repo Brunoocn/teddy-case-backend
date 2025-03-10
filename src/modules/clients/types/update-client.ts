@@ -3,4 +3,5 @@ export interface IUpdateClient {
   name: string;
   companyValue: number;
   userId: string;
+  salary: number;
 }

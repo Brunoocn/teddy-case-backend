@@ -23,6 +23,13 @@ export class UpdateIsSelectService {
     return this.clientRepository.save(client);
   }
 
+  async resetAllSelected(userId: string): Promise<void> {
+    await this.clientRepository.update(
+      { user: { id: userId } },
+      { isSelect: false },
+    );
+  }
+
   private async findClientOrFail(clientId: string): Promise<Client> {
     const client = await this.clientRepository.findOneBy({ id: clientId });
 

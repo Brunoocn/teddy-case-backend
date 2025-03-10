@@ -28,6 +28,7 @@ import { UpdateService } from '../services/update/update.service';
 
 import { CreateUpdateClientDTO } from '../dtos/create-client.dto';
 import { UpdateIsSelectByClientIdDTO } from '../dtos/update-is-select-by-client-id.dto';
+import { ResetAllSelectedByIdDTO } from '../dtos/reset-all-selected-by-user-id.dto';
 @ApiTags('Clientes')
 @Controller('clients')
 export class ClientsController {
@@ -87,7 +88,7 @@ export class ClientsController {
     @Query('page') page = 1,
     @Query('pageSize') pageSize = 100,
     @Query('userId') userId?: string,
-    @Query('isSelect') isSelect?: boolean,
+    @Query('isSelect') isSelect = false,
   ) {
     return this.findAllClientsService.findAll({
       page,
@@ -156,6 +157,25 @@ export class ClientsController {
       clientId,
       ...updateIsSelectDto,
     });
+  }
+
+  @ApiOperation({
+    summary: 'Resetar todos os clientes selecionados de um usuário',
+  })
+  @ApiParam({
+    name: 'userId',
+    description: 'ID do usuário',
+    example: '123e4567-e89b-12d3-a456-426614174000',
+  })
+  @ApiBody({ type: ResetAllSelectedByIdDTO })
+  @ApiResponse({
+    status: 200,
+    description: 'Clientes selecionados resetados com sucesso',
+    type: ResetAllSelectedByIdDTO,
+  })
+  @Patch(':userId/select/reset')
+  async resetAllSelected(@Param('userId') userId: string) {
+    return this.updateIsSelectService.resetAllSelected(userId);
   }
 
   @ApiOperation({ summary: 'Deletar um cliente (soft delete)' })

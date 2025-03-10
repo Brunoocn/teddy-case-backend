@@ -20,11 +20,13 @@ export class UpdateService {
     clientId,
     name,
     companyValue,
+    salary,
   }: IUpdateClient): Promise<Client> {
     const client = await this.findClientOrFail(clientId);
 
     client.name = name;
     client.companyValue = companyValue;
+    client.salary = salary;
 
     return this.clientRepository.save(client);
   }

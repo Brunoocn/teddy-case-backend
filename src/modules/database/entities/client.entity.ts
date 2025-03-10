@@ -10,6 +10,9 @@ export class Client extends BaseEntity {
   @Column({ type: 'float', nullable: false })
   companyValue: number;
 
+  @Column({ type: 'float', nullable: false })
+  salary: number;
+
   @ManyToOne(() => User, (user) => user.clients)
   user: User;
 
