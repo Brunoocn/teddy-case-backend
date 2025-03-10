@@ -57,7 +57,7 @@ Independente dos 2 casos deve ser levado em consideração a equipe no momento e
 
 # Componentes da arquitetura
 
-![Componentes Da Arquitetura](https://private-user-images.githubusercontent.com/77028107/420643134-ef5c6eef-4234-4957-bbb8-f2d2487efc41.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDE0OTUyODQsIm5iZiI6MTc0MTQ5NDk4NCwicGF0aCI6Ii83NzAyODEwNy80MjA2NDMxMzQtZWY1YzZlZWYtNDIzNC00OTU3LWJiYjgtZjJkMjQ4N2VmYzQxLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTAzMDklMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwMzA5VDA0MzYyNFomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTVmMjJkMjQ2NjM5OWViN2I2ZmIzYjQxM2E4YzYyODk0MjNhMDBmZjMxOWMzNDFiNDRlNDBmMjhhM2I3Y2Q2YWYmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.GvV8O7e5PDYT6WtVobGtCDcUxdZCkRDKssWdHLXj__U)
+![Componentes Da Arquitetura](./docs/assets/components.png)
 
 # MANEIRA FACIL
 
@@ -75,7 +75,7 @@ Independente dos 2 casos deve ser levado em consideração a equipe no momento e
   - Por ser gerenciado é mais caro, sobe uma maquina dimensionada anteriormente
     e utiliza regras de load balancer pra fazer upscale.
 
-![Arquitetura Facil](https://private-user-images.githubusercontent.com/77028107/420643176-e70d3780-7315-495c-abdb-45fe524b06b4.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDE0OTUzNTAsIm5iZiI6MTc0MTQ5NTA1MCwicGF0aCI6Ii83NzAyODEwNy80MjA2NDMxNzYtZTcwZDM3ODAtNzMxNS00OTVjLWFiZGItNDVmZTUyNGIwNmI0LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTAzMDklMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwMzA5VDA0MzczMFomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWExNmY5ODYwZWY1MTQxZjQyYTViZTM4ZDM0NGM2MDdkZTNkYzhmOGJmYzliNjU0Nzg5ZWIwYTZhN2I2OWQ4YjEmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.u04qMoVsNfvuGVEEW_zBS_xXcdJoU74vtAayWd8h64U)
+![Arquitetura Facil](./docs/assets/facil.png)
 
 # MANEIRA BARATA
 
@@ -91,9 +91,10 @@ Independente dos 2 casos deve ser levado em consideração a equipe no momento e
   - Dificuldade inicial, precisa organizar os serviços ou fazer utilização de IaC(terraform,open tofu, cloudformation).
   - Tem necessidade de criar um CI/CD especifico para isso.
 
-![Arquitetura Barata](https://private-user-images.githubusercontent.com/77028107/420643200-f623ee14-731d-4d08-b964-4aeb93495e65.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDE0OTUzNzcsIm5iZiI6MTc0MTQ5NTA3NywicGF0aCI6Ii83NzAyODEwNy80MjA2NDMyMDAtZjYyM2VlMTQtNzMxZC00ZDA4LWI5NjQtNGFlYjkzNDk1ZTY1LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTAzMDklMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwMzA5VDA0Mzc1N1omWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTFjYjJhZWY0MTYwMmY1N2Q0MzY3ZDIxZmNjZjJiYWJkNzAyNmEzYTg5ZTY0MjY4ZGQ1NDkyODM1NmYwYWYyZmMmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.IZSP213NzbkApsfxfciHEBJCgDNWhKP03deAzBySpKw)
+![Arquitetura Barata](./docs/assets/barata.png)
 
 # Pontos a serem discutidos
-  - LOGS - É possivel usar aws cloud watch, grafana, ou qualquer outro agent do mercado.
-  - Tracing - É possivel utilizar o aws x-ray ou subir na mão alguma outra solução open telemtry.
-  - VPN (infra fechada)
+
+- LOGS - É possivel usar aws cloud watch, grafana, ou qualquer outro agent do mercado.
+- Tracing - É possivel utilizar o aws x-ray ou subir na mão alguma outra solução open telemtry.
+- VPN (infra fechada)
